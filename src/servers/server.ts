@@ -1,19 +1,23 @@
 // Import libraries
 import { createServer, Server } from "miragejs";
-// import { Model } from "miragejs";
+import { Model } from "miragejs";
 
-export const mirageModel = {
-  // post: Model.extend<Partial<TPost>>({}),
-  // user: Model.extend<Partial<TUser>>({}),
-  // tag: Model.extend<Partial<TTag>>({}),
-  // category: Model.extend<Partial<TCategory>>({}),
-};
+// Import types
+import { Log } from "types/log.type";
+
+// Import data
+import { logsData } from "@data/log.data";
+import logRoutes from "./routes/log.routes";
 
 declare global {
   interface Window {
     server?: Server;
   }
 }
+
+export const mirageModel = {
+  post: Model.extend<Partial<Log>>({}),
+};
 
 export const createMockServer = () => {
   if (window.server) {
@@ -23,9 +27,15 @@ export const createMockServer = () => {
   const server = createServer({
     timing: 800,
     models: mirageModel,
-    // seeds(server) {},
+    seeds(server) {
+      server.db.loadData({
+        logs: logsData,
+      });
+    },
     namespace: "/",
-    routes() {},
+    routes() {
+      logRoutes(this);
+    },
   });
 
   window.server = server;
