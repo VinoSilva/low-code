@@ -2,7 +2,7 @@
 import styled, { keyframes } from "styled-components";
 
 // Import constants
-import { LoadingIcon } from "@constants/icons";
+import { LoadingIcon } from "@components/shared/icons";
 
 const rotate = keyframes`
   from {

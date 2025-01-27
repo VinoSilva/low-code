@@ -71,3 +71,31 @@ export const LoadingIcon = () => (
     <path d="M12 22c5.421 0 10-4.579 10-10h-2c0 4.337-3.663 8-8 8s-8-3.663-8-8c0-4.336 3.663-8 8-8V2C6.579 2 2 6.58 2 12c0 5.421 4.579 10 10 10z" />
   </svg>
 );
+
+export const PlayIcon = () => (
+  <svg
+    fill="currentColor"
+    strokeWidth={0}
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 384 512"
+    style={{ overflow: "visible", color: "currentcolor" }}
+    height="1em"
+    width="1em"
+  >
+    <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80v352c0 17.4 9.4 33.4 24.5 41.9S58.2 482 73 473l288-176c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
+  </svg>
+);
+
+export const StopIcon = () => (
+  <svg
+    fill="currentColor"
+    strokeWidth={0}
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 384 512"
+    style={{ overflow: "visible", color: "currentcolor" }}
+    height="1em"
+    width="1em"
+  >
+    <path d="M0 128c0-35.3 28.7-64 64-64h256c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z" />
+  </svg>
+);

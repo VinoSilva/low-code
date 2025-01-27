@@ -8,11 +8,10 @@ export type TFetchLogResponse = {
 };
 
 export type TCreateLogRequest = {
-  data: Log;
+  data: Omit<Log, "timestamp" | "logId">[];
 };
 
 export type TCreateLogResponse = {
-  data: Log;
   isSuccess: boolean;
   message: string;
 };

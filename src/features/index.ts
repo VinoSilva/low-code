@@ -1,6 +1,10 @@
 // Import libraries
 import { combineReducers } from "redux";
 
-const rootReducer = combineReducers({});
+import drawerReducer from "./drawerReducer";
+
+const rootReducer = combineReducers({
+  drawer: drawerReducer,
+});
 
 export default rootReducer;

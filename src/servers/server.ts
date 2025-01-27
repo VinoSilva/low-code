@@ -6,7 +6,9 @@ import { Model } from "miragejs";
 import { Log } from "types/log.type";
 
 // Import data
-import { logsData } from "@data/log.data";
+// import { logsData } from "@data/log.data";
+
+// Import routes
 import logRoutes from "./routes/log.routes";
 
 declare global {
@@ -29,7 +31,7 @@ export const createMockServer = () => {
     models: mirageModel,
     seeds(server) {
       server.db.loadData({
-        logs: logsData,
+        logs: [],
       });
     },
     namespace: "/",

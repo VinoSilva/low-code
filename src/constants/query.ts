@@ -3,3 +3,9 @@ export const QUERY = {
     FETCH: "LOGS/FETCH",
   },
 };
+
+export const MUTATION = {
+  LOGS: {
+    CREATE: "LOGS/CREATE",
+  },
+};

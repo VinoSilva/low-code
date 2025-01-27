@@ -4,7 +4,7 @@ export const logsData: Log[] = [
   {
     logId: "log1",
     nodeId: "node1",
-    nodeType: "Alert",
+    nodeType: "EMAIL",
     timestamp: "2025-01-26T10:00:00.000Z",
     inputs: [42],
     output: null,
@@ -13,7 +13,7 @@ export const logsData: Log[] = [
   {
     logId: "log2",
     nodeId: "node2",
-    nodeType: "Add",
+    nodeType: "CALCULATION",
     timestamp: "2025-01-26T10:05:00.000Z",
     inputs: [10, 20],
     output: 30,
@@ -22,7 +22,7 @@ export const logsData: Log[] = [
   {
     logId: "log3",
     nodeId: "node3",
-    nodeType: "Divide",
+    nodeType: "LOG",
     timestamp: "2025-01-26T10:10:00.000Z",
     inputs: [50, 5],
     output: 10,
@@ -31,7 +31,7 @@ export const logsData: Log[] = [
   {
     logId: "log4",
     nodeId: "node2",
-    nodeType: "Add",
+    nodeType: "CALCULATION",
     timestamp: "2025-01-26T10:15:00.000Z",
     inputs: [5, -5],
     output: 0,
@@ -40,7 +40,7 @@ export const logsData: Log[] = [
   {
     logId: "log5",
     nodeId: "node3",
-    nodeType: "Divide",
+    nodeType: "LOG",
     timestamp: "2025-01-26T10:20:00.000Z",
     inputs: [10, 0],
     output: null,
@@ -50,7 +50,7 @@ export const logsData: Log[] = [
   {
     logId: "log6",
     nodeId: "node1",
-    nodeType: "Alert",
+    nodeType: "EMAIL",
     timestamp: "2025-01-26T10:25:00.000Z",
     inputs: [99],
     output: null,
@@ -59,7 +59,7 @@ export const logsData: Log[] = [
   {
     logId: "log7",
     nodeId: "node2",
-    nodeType: "Add",
+    nodeType: "CALCULATION",
     timestamp: "2025-01-26T10:30:00.000Z",
     inputs: [3, 7],
     output: 10,
@@ -68,7 +68,7 @@ export const logsData: Log[] = [
   {
     logId: "log8",
     nodeId: "node3",
-    nodeType: "Divide",
+    nodeType: "LOG",
     timestamp: "2025-01-26T10:35:00.000Z",
     inputs: [100, 10],
     output: 10,
@@ -77,7 +77,7 @@ export const logsData: Log[] = [
   {
     logId: "log9",
     nodeId: "node1",
-    nodeType: "Alert",
+    nodeType: "EMAIL",
     timestamp: "2025-01-26T10:40:00.000Z",
     inputs: [123],
     output: null,
@@ -86,7 +86,7 @@ export const logsData: Log[] = [
   {
     logId: "log10",
     nodeId: "node2",
-    nodeType: "Add",
+    nodeType: "CALCULATION",
     timestamp: "2025-01-26T10:45:00.000Z",
     inputs: [25, 25],
     output: 50,
@@ -95,7 +95,7 @@ export const logsData: Log[] = [
   {
     logId: "log11",
     nodeId: "node3",
-    nodeType: "Divide",
+    nodeType: "LOG",
     timestamp: "2025-01-26T10:50:00.000Z",
     inputs: [81, 9],
     output: 9,
@@ -104,7 +104,7 @@ export const logsData: Log[] = [
   {
     logId: "log12",
     nodeId: "node2",
-    nodeType: "Add",
+    nodeType: "CALCULATION",
     timestamp: "2025-01-26T10:55:00.000Z",
     inputs: [-1, -1],
     output: -2,
@@ -113,7 +113,7 @@ export const logsData: Log[] = [
   {
     logId: "log13",
     nodeId: "node3",
-    nodeType: "Divide",
+    nodeType: "LOG",
     timestamp: "2025-01-26T11:00:00.000Z",
     inputs: [20, 4],
     output: 5,
@@ -122,7 +122,7 @@ export const logsData: Log[] = [
   {
     logId: "log14",
     nodeId: "node1",
-    nodeType: "Alert",
+    nodeType: "EMAIL",
     timestamp: "2025-01-26T11:05:00.000Z",
     inputs: [77],
     output: null,
@@ -131,7 +131,7 @@ export const logsData: Log[] = [
   {
     logId: "log15",
     nodeId: "node2",
-    nodeType: "Add",
+    nodeType: "CALCULATION",
     timestamp: "2025-01-26T11:10:00.000Z",
     inputs: [15, 5],
     output: 20,
@@ -140,7 +140,7 @@ export const logsData: Log[] = [
   {
     logId: "log16",
     nodeId: "node3",
-    nodeType: "Divide",
+    nodeType: "LOG",
     timestamp: "2025-01-26T11:15:00.000Z",
     inputs: [100, 20],
     output: 5,
@@ -149,7 +149,7 @@ export const logsData: Log[] = [
   {
     logId: "log17",
     nodeId: "node1",
-    nodeType: "Alert",
+    nodeType: "EMAIL",
     timestamp: "2025-01-26T11:20:00.000Z",
     inputs: [1],
     output: null,
@@ -158,7 +158,7 @@ export const logsData: Log[] = [
   {
     logId: "log18",
     nodeId: "node2",
-    nodeType: "Add",
+    nodeType: "CALCULATION",
     timestamp: "2025-01-26T11:25:00.000Z",
     inputs: [6, 14],
     output: 20,
@@ -167,7 +167,7 @@ export const logsData: Log[] = [
   {
     logId: "log19",
     nodeId: "node3",
-    nodeType: "Divide",
+    nodeType: "LOG",
     timestamp: "2025-01-26T11:30:00.000Z",
     inputs: [50, 10],
     output: 5,
@@ -176,7 +176,7 @@ export const logsData: Log[] = [
   {
     logId: "log20",
     nodeId: "node1",
-    nodeType: "Alert",
+    nodeType: "EMAIL",
     timestamp: "2025-01-26T11:35:00.000Z",
     inputs: [456],
     output: null,

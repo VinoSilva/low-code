@@ -1,12 +1,17 @@
 // Import libraries
 import styled from "styled-components";
+import { useQuery } from "@tanstack/react-query";
 
 // Import components
 import StyledTable from "@components/shared/Table";
 import Loading from "@components/shared/Loading";
-import { useQuery } from "@tanstack/react-query";
+
+// Import constants
 import { QUERY } from "@constants/query";
+
+// Import services
 import { fetchLogs } from "@services/log.service";
+
 import { useCallback, useMemo } from "react";
 
 const Container = styled.div`
@@ -40,8 +45,6 @@ const ExecutionLog = () => {
     return isFetching || isLoading;
   }, [isFetching, isLoading]);
 
-  console.log(data);
-
   const renderLogs = useCallback(() => {
     if (!data?.data?.length) {
       return <></>;
@@ -50,7 +53,13 @@ const ExecutionLog = () => {
     return data.data.map(
       ({ logId, timestamp, status, nodeType, output, inputs }) => (
         <tr key={logId}>
-          <td>{timestamp}</td>
+          <td>
+            {new Date(timestamp).toLocaleDateString("en-GB", {
+              minute: "numeric",
+              second: "numeric",
+              hour: "numeric",
+            })}
+          </td>
           <td>{nodeType}</td>
           <td>{JSON.stringify(inputs)}</td>
           <td>{output}</td>

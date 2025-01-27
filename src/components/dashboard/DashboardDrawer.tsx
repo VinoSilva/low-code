@@ -1,20 +1,28 @@
+// Import libraries
+import { useCallback, useState } from "react";
+import FloatingButton from "@components/shared/FloatingButton";
+import styled from "styled-components";
+
 // Import components
 import Drawer from "@components/shared/Drawer/Drawer";
 import DrawerContent from "@components/shared/Drawer/DrawerContent";
-import FloatingButton from "@components/shared/FloatingButton";
-
-// Import hooks
-import useBoolean from "@hooks/useBoolean";
 
 // Import constants
-import { LeftArrowIcon, RightArrowIcon } from "@constants/icons";
-import DrawerHeader from "@components/shared/Drawer/DashboardHeader";
-import { useCallback } from "react";
+import { LeftArrowIcon, RightArrowIcon } from "@components/shared/icons";
 import { ROUTES } from "@constants/routes";
-import StyledLink from "@components/shared/StyledLink";
-import styled from "styled-components";
 
-const DRAWER_WIDTH = 300;
+// Import components
+import DrawerHeader from "@components/shared/Drawer/DashboardHeader";
+import StyledLink from "@components/shared/StyledLink";
+
+// Import hooks
+import useClickOutside from "@hooks/useOnClickOutside";
+import { useAppDispatch, useAppSelector } from "@hooks/redux";
+
+// Import redux
+import { toggleDrawerExpanded } from "@features/drawerReducer";
+
+const DRAWER_WIDTH = 350;
 
 const routesMap: { route: string; label: string }[] = [
   { label: "Builder", route: ROUTES.BUILDER.route },
@@ -28,7 +36,26 @@ const StyledRoutesContainer = styled.div`
 `;
 
 const DashboardDrawer = () => {
-  const { toggle: toggleShowDrawer, value: showDrawer } = useBoolean(false);
+  const dispatch = useAppDispatch();
+
+  const isDrawerExpanded = useAppSelector(
+    (state) => state.drawer.isDrawerExpanded
+  );
+
+  const [ref, setRef] = useState<HTMLElement>();
+
+  const toggleShowDrawer = () => {
+    dispatch(toggleDrawerExpanded());
+  };
+
+  useClickOutside(ref, () => {
+    // This is done ensure the toggling back does not happen instantenously
+    // By right there should be a on transition complete on the drawer
+    // There is no time thus I did it this way
+    if (ref && ref.getBoundingClientRect().left >= 0 && isDrawerExpanded) {
+      toggleShowDrawer();
+    }
+  });
 
   const renderLinks = useCallback(() => {
     const arr = routesMap.map(({ route, label }) => (
@@ -42,16 +69,24 @@ const DashboardDrawer = () => {
 
   return (
     <div>
-      <Drawer $width={DRAWER_WIDTH} $isOpen={showDrawer}>
+      <Drawer
+        ref={(ref) => {
+          if (ref) {
+            setRef(ref);
+          }
+        }}
+        $width={DRAWER_WIDTH}
+        $isOpen={isDrawerExpanded}
+      >
         <DrawerHeader>LOW CODE</DrawerHeader>
         <DrawerContent>{renderLinks()}</DrawerContent>
       </Drawer>
       <FloatingButton
         onClick={toggleShowDrawer}
-        $left={showDrawer ? DRAWER_WIDTH : undefined}
+        $left={isDrawerExpanded ? DRAWER_WIDTH : undefined}
         style={{ marginLeft: 20 }}
       >
-        {showDrawer ? <LeftArrowIcon /> : <RightArrowIcon />}
+        {isDrawerExpanded ? <LeftArrowIcon /> : <RightArrowIcon />}
       </FloatingButton>
     </div>
   );

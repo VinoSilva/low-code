@@ -1,50 +1,64 @@
-# React + TypeScript + Vite
+# Vite React Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple React project bootstrapped with [Vite](https://vitejs.dev/), a fast and modern frontend build tool.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Prerequisites
 
-## Expanding the ESLint configuration
+Before getting started, ensure you have the following installed:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Node.js** (v16+ recommended)  
+  [Download Node.js](https://nodejs.org/)
+- **npm** (comes with Node.js) or **yarn** (optional)  
+  [Install Yarn](https://classic.yarnpkg.com/lang/en/docs/install/)
 
-- Configure the top-level `parserOptions` property like this:
+---
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Getting Started
+
+Follow these steps to set up and run the project locally:
+
+## Cloning and running the project
+
+```bash
+git clone <repository-url>
+
+cd <project-directory>
+
+npm install/yarn install
+
+npm run dev/yarn run dev
+
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+The development server will start, and you can view the app at:
+http://localhost:5173
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Building the project
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm run build/yarn build
 ```
+
+## Project Structure
+
+├── src/                # Application source code
+│   ├── pages/          # Top-level pages representing routes in the application
+│   ├── components/     # Reusable React components used across the application
+│   ├── services/       # API calls or utility functions for external interactions
+│   ├── types/          # TypeScript type definitions and interfaces
+│   ├── features/       # Redux slices and reducers for managing application state
+│   ├── data/           # Static or mock data used in the application
+│   ├── context/        # React Contexts for managing shared application state
+│   ├── constants/      # Application-wide constants (e.g., URLs, action types)
+│   ├── store/          # Redux store configuration
+│   ├── utility/        # Helper functions and utility modules used throughout the application
+│   ├── servers/        # Mock server setup for simulating APIs during development
+│   ├── assets/         # Static assets (images, fonts, etc.)
+│   ├── App.jsx         # Main application component
+│   └── main.jsx        # Entry point for the application
+├── public/             # Public files served as-is
+├── package.json        # Project metadata and scripts
+├── vite.config.js      # Vite configuration
+└── README.md           # Project documentation
