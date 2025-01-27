@@ -149,7 +149,9 @@ const Canvas = () => {
     type: PinType;
   }>();
 
-  const hoveredPin = useRef<{ nodeId: string; type: PinType }>();
+  const hoveredPin = useRef<{ nodeId: string; type: PinType } | undefined>(
+    undefined
+  );
 
   useEffect(() => {
     if (selectedPin) {

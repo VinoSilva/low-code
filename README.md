@@ -62,3 +62,28 @@ npm run build/yarn build
 ├── package.json        # Project metadata and scripts
 ├── vite.config.js      # Vite configuration
 └── README.md           # Project documentation
+
+## Assumptions Made
+```bash
+1. A node output can only connect to only one node's input
+2. The output of one node is not passed as another node's input
+3. No third party library is meant to be used
+```
+
+## Key Architectural Decisions
+Most components are composite components, for example Nodes have a base class
+Custom Nodes: All nodes extend from a BaseNode (Node.tsx) for consistency and shared functionality. For example, EmailNode, LogNode and Math Node wrap the BaseNode (Node.tsx)
+Similarly, for Edge. There is the base Edge.tsx class and there are composite versions of it for example draw edge where it tracks mouse movement to simulate drawing. There is also the NodeEdge version where we pass in the ids of the two nodes and it will get the element position and pass it to Edge. Both of these are composite components.
+
+Modular Components: Each component (Nodes, Edges, and other sharable across pages component) are reusable and designed to follow the Single Responsibility Principle. For example, 
+
+## Notes
+Only a simple app render debug was done for the test due time constraint
+
+## Future Improvements
+1. Breaking down components further in Canvas.tsx
+2. More smoother node movements
+3. Bezier curve for line drawing
+4. Make custom table component which takes in columns and dataSource as props (the current one is basic)
+5. Auto scroll to node when executing flow
+6. Pagination for logs

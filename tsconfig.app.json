@@ -37,5 +37,11 @@
       "@context/*": ["context/*"],
     }
   },
+  "exclude": [
+    "src/**/*.test.tsx",
+    "src/**/*.spec.tsx",
+    "node_modules",   // Exclude node_modules
+    "dist"            // Exclude the build output directory
+  ],
   "include": ["src"]
 }
