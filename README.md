@@ -42,7 +42,7 @@ npm run build/yarn build
 ```
 
 ## Project Structure
-
+```bash
 ├── src/                # Application source code
 │   ├── pages/          # Top-level pages representing routes in the application
 │   ├── components/     # Reusable React components used across the application
@@ -62,6 +62,7 @@ npm run build/yarn build
 ├── package.json        # Project metadata and scripts
 ├── vite.config.js      # Vite configuration
 └── README.md           # Project documentation
+```
 
 ## Assumptions Made
 ```bash
